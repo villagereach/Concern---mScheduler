@@ -1,0 +1,6 @@
+Step 1: Install the app
+Step 2: Create/associate your device with a google account
+Step 3: Start the app
+Step 4: Menu->Options: set both the Clinic Name and the Calendar Name
+Step 5: Update Server
+Step 6: enjoy

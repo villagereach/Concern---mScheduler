@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clinic-Cal</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="new_calendar">New Calendar</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="event_list_title">Scheduled Appointments</string>
+    <string name="event_progress_text">Loading Events</string>
+    <string name="add_appointment">Add Appointment</string>
+    <string name="edit_appointments">Edit Appointments</string>
+    <string name="setup">Setup</string>
+    <string name="sync">Update Server</string>
+    <string name="name_pref_clinic">clinicName</string>
+    <string name="select_date">Select Date</string>
+    <string name="appointment_list_act_title_format">Appointments for:</string>
+    <string name="no_appointments_format" formatted="false">There are no appointments for %d-%d-%d.</string>
+    <string name="no_appointments">There are no appointments.</string>
+    <string name="sync_start">Starting Update</string>
+    <string name="sync_add">Uploading new appointments</string>
+    <string name="sync_edit">Uploading changed appointments</string>
+    <string name="sync_delete">Updating deleted appointments</string>
+    <string name="sync_sync">Refreshing local database</string>
+    <string name="name_pref_calendar">calendarName</string>
+    <string name="edit">Edit</string>
+    <string name="local_database_cleared">Appointments cleared from the device.</string>
+    <string name="warning_bad_prefs">You must set both the Clinic Name and Calendar name (ex. joe@gmail.com) before the first use.</string>
+</resources>

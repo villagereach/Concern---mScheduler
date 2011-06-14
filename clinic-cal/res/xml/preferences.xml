@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <PreferenceCategory
+                android:title="Main Settings">
+
+            <EditTextPreference
+                android:name="Clinic Name"
+                android:summary="The name of the clinic this device is issued to."
+                android:defaultValue=""
+                android:title="Clinic Name"
+                android:key="@string/name_pref_clinic" />
+
+            <EditTextPreference
+                android:name="Calendar Name"
+                android:summary="The name of the calendar used for synchronization"
+                android:title="Calendar Name"
+                android:key="@string/name_pref_calendar" />
+
+            <!-- <Preference
+                    android:title="Custom Preference"
+                    android:summary="This works almost like a button"
+                    android:key="customPref" /> -->
+        </PreferenceCategory>
+</PreferenceScreen>

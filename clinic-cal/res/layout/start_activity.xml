@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/startRoot"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
+    <!--<Button android:id="@+id/addAppointment" android:layout_weight="1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/add_appointment"/>
+    <Button android:id="@+id/editAppointments" android:layout_weight="1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/edit_appointments"/>-->
+
+    <Button android:id="@+id/selectDate" android:layout_width="150dp" android:layout_height="150dp" android:text="@string/select_date"/>
+    <Button android:id="@+id/sync" android:layout_width="150dp" android:layout_height="150dp" android:text="@string/sync"/>
+</LinearLayout>
