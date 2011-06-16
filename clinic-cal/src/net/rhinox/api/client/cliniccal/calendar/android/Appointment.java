@@ -25,6 +25,7 @@ public class Appointment
         public String patient_phone;
         public boolean toStringIncludeDate = false;
         public String url = "";
+        public boolean toStringIncludeTime = false;
 
         public Appointment(){}
 
@@ -87,13 +88,18 @@ public class Appointment
         {
             if( toStringIncludeDate )
             {
-                DateFormat df = new SimpleDateFormat("dd-MM-yy HH:mm");
+                DateFormat df = new SimpleDateFormat("dd-MM-yy");
+                return String.format("%s  %s %s", df.format(date), patient, patient_phone);
+            }
+
+            if( toStringIncludeTime )
+            {
+                DateFormat df = new SimpleDateFormat("HH:mm");
                 return String.format("%s  %s", df.format(date), patient);
             }
 
+            return String.format("%s - %s", patient, patient_phone);
 
-            DateFormat df = new SimpleDateFormat("HH:mm");
-            return String.format("%s  %s", df.format(date), patient);
         }
     }
 

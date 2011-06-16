@@ -3,6 +3,7 @@ package net.rhinox.api.client.cliniccal.calendar.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -44,6 +45,15 @@ public class SelectDateDlg extends Activity
 
         CheckBox allDates = (CheckBox)findViewById(R.id.selectDateAllDates);
 
+
+        DatePicker dp = (DatePicker)findViewById(R.id.selectDateWhen);
+        Date lastTime = new Date(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getLong(getString(R.string.pref_name_last_date), new Date().getTime()));
+
+        if( null != dp)
+        {
+            dp.updateDate(lastTime.getYear() + 1900, lastTime.getMonth(), lastTime.getDate());
+        }
+
         allDates.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener()
                 {
 
@@ -62,7 +72,11 @@ public class SelectDateDlg extends Activity
                 DatePicker dp = (DatePicker)SelectDateDlg.this.findViewById(R.id.selectDateWhen);
                 Intent i = new Intent();
 
-                i.putExtra("selectedDate", new Date(dp.getYear() - 1900, dp.getMonth(), dp.getDayOfMonth()).getTime());
+                Date date = new Date(dp.getYear() - 1900, dp.getMonth(), dp.getDayOfMonth());
+
+                PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putLong(getString(R.string.pref_name_last_date), date.getTime()).commit();
+
+                i.putExtra("selectedDate", date.getTime());
                 i.putExtra("showAllAppointments", showAllDates);
                 setResult( RESULT_OK, i);
                 finish();

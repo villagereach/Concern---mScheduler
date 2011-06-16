@@ -23,8 +23,8 @@
         <!--<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="Appointment Date:"/>
         <DatePicker android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/when" />-->
 
-        <TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="Appointment Time:"/>
-        <TimePicker android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/whenTime"/>
+        <!-- <TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="Appointment Time:"/>
+        <TimePicker android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/whenTime"/>         -->
 
         <!--<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="Comments"/>
         <EditText android:layout_height="200px" android:layout_width="fill_parent" android:lines="5" android:gravity="top" android:id="@+id/comments"/>-->

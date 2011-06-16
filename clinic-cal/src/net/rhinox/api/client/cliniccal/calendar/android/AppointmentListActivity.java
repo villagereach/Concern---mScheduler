@@ -3,6 +3,7 @@ package net.rhinox.api.client.cliniccal.calendar.android;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -59,6 +60,8 @@ public class AppointmentListActivity extends ListActivity
     private void setupUi()
     {
 
+        String clinic = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString( getString(R.string.pref_name_clinic), "" );
+
         setContentView(R.layout.appointment_list);
         registerForContextMenu(getListView());
 
@@ -81,7 +84,7 @@ public class AppointmentListActivity extends ListActivity
                 }
             });
 
-            setTitle(String.format(getString(R.string.appointment_list_act_title_format) + " %s-%s-%s", selectedDate.getDate(), selectedDate.getMonth() + 1, selectedDate.getYear() + 1900));
+            setTitle(String.format(getString(R.string.appointment_list_act_title_format) + " %s-%s-%s", clinic, selectedDate.getDate(), selectedDate.getMonth() + 1, selectedDate.getYear() + 1900));
         }
         else
         {
@@ -92,8 +95,18 @@ public class AppointmentListActivity extends ListActivity
                 l.removeView(add);
             }
 
-            setTitle("All Appointments");
+            setTitle(String.format(getString(R.string.appointment_list_act_title_all_appts_format), clinic));
         }
+
+        Button back = (Button)findViewById(R.id.appointmentListDone);
+
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                finish();
+            }
+        });
 
         executeRefreshEvents(showAllDates);
     }
@@ -169,7 +182,7 @@ public class AppointmentListActivity extends ListActivity
 
             if( !showAllAppointments )
             {
-                where += " AND DateTime > " + min.getTime() + " AND DateTime < " + max.getTime();
+                where += " AND DateTime >= " + min.getTime() + " AND DateTime <= " + max.getTime();
             }
 
             Appointment[] appts = storageManager.getAppointments(where);

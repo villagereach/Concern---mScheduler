@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
@@ -54,7 +55,7 @@ public class StartActivity extends Activity
 
     private void checkPrefs()
     {
-        if( 0 == PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.name_pref_clinic), "").length() || 0 == PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.name_pref_calendar), "").length() )
+        if( 0 == PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_clinic), "").length() || 0 == PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_calendar), "").length() )
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -74,6 +75,9 @@ public class StartActivity extends Activity
          LinearLayout l = (LinearLayout)findViewById( R.id.startRoot );
 
         l.setOrientation( Configuration.ORIENTATION_LANDSCAPE == cfg.orientation ? LinearLayout.HORIZONTAL : LinearLayout.VERTICAL);
+
+//        l = (LinearLayout)findViewById(R.id.startBottomLayout);
+//        l.setOrientation( Configuration.ORIENTATION_LANDSCAPE == cfg.orientation ? LinearLayout.HORIZONTAL : LinearLayout.VERTICAL);
     }
 
     private void setupUi(final Bundle args)
@@ -103,8 +107,29 @@ public class StartActivity extends Activity
             {
                 Intent i = new Intent(StartActivity.this, SyncDlg.class);
                 startActivityForResult(i, DIALOG_SYNC);
+
+                PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putString(getString(R.string.pref_name_last_update), new Date().toLocaleString()).commit();
+                setLastUpdate();
             }
         });
+
+        setLastUpdate();
+    }
+
+    private void setLastUpdate()
+    {
+        String lastUpdate = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_last_update), "");
+
+        if( 0 != lastUpdate.length())
+        {
+            TextView tv = (TextView)findViewById(R.id.startLastUpdate);
+
+            if( null != tv )
+            {
+                tv.setText(String.format(getString(R.string.last_update_format), lastUpdate));
+            }
+        }
+
     }
 
 

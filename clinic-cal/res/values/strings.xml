@@ -12,9 +12,9 @@
     <string name="edit_appointments">Edit Appointments</string>
     <string name="setup">Setup</string>
     <string name="sync">Update Server</string>
-    <string name="name_pref_clinic">clinicName</string>
-    <string name="select_date">Select Date</string>
-    <string name="appointment_list_act_title_format">Appointments for:</string>
+    <string name="select_date_title">Select Date</string>
+    <string name="appointment_list_act_title_format">Appointments for %s:</string>
+    <string name="appointment_list_act_title_all_appts_format">"All Appointments for %s:"</string>
     <string name="no_appointments_format" formatted="false">There are no appointments for %d-%d-%d.</string>
     <string name="no_appointments">There are no appointments.</string>
     <string name="sync_start">Starting Update</string>
@@ -22,8 +22,15 @@
     <string name="sync_edit">Uploading changed appointments</string>
     <string name="sync_delete">Updating deleted appointments</string>
     <string name="sync_sync">Refreshing local database</string>
-    <string name="name_pref_calendar">calendarName</string>
     <string name="edit">Edit</string>
     <string name="local_database_cleared">Appointments cleared from the device.</string>
     <string name="warning_bad_prefs">You must set both the Clinic Name and Calendar name (ex. joe@gmail.com) before the first use.</string>
+    <string name="last_update_format">Last Update: %s</string>
+    <string name="appointment_list_done">Go Back</string>
+
+    <string name="pref_name_clinic">clinicName</string>
+    <string name="pref_name_calendar">calendarName</string>
+    <string name="pref_name_last_date">lastDate</string>
+    <string name="pref_name_last_update">lastUpdate</string>
+
 </resources>

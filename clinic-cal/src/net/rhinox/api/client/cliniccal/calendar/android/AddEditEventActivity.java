@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TimePicker;
 
 import java.util.Date;
 
@@ -38,7 +37,7 @@ public class AddEditEventActivity extends Activity
         Button ok = (Button)findViewById(R.id.okButton);
         Button cancel = (Button)findViewById(R.id.cancelButton);
 
-        ((TimePicker)findViewById(R.id.whenTime)).setIs24HourView(true);
+        //((TimePicker)findViewById(R.id.whenTime)).setIs24HourView(true);
 
         updateData(false);
 
@@ -68,7 +67,7 @@ public class AddEditEventActivity extends Activity
     {
         EditText name = (EditText)findViewById(R.id.name);
         //DatePicker when = (DatePicker)findViewById(R.id.when);
-        TimePicker time = (TimePicker)findViewById(R.id.whenTime);
+        //TimePicker time = (TimePicker)findViewById(R.id.whenTime);
         EditText cell = (EditText)findViewById(R.id.cell);
 
 
@@ -80,15 +79,15 @@ public class AddEditEventActivity extends Activity
             Date startTime = new Date(when.getYear(), when.getMonth(), when.getDate());
 
 
-            startTime.setHours(time.getCurrentHour());
-            startTime.setMinutes(time.getCurrentMinute());
+            //startTime.setHours(time.getCurrentHour());
+            //startTime.setMinutes(time.getCurrentMinute());
 
             //event.date = new Date(when.toGMTString());
             event.date = startTime;
 
             event.patient_phone = cell.getText().toString();
 
-            event.clinic = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.name_pref_clinic), "");
+            event.clinic = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_clinic), "");
 
         }
         else
@@ -97,8 +96,8 @@ public class AddEditEventActivity extends Activity
             name.setText(event.patient);
             //when.updateDate(event.date.getYear() + 1900, event.date.getMonth(), event.date.getDate());
 
-            time.setCurrentHour(event.date.getHours());
-            time.setCurrentMinute(event.date.getMinutes());
+            //time.setCurrentHour(event.date.getHours());
+            //time.setCurrentMinute(event.date.getMinutes());
 
             cell.setText(event.patient_phone);
         }

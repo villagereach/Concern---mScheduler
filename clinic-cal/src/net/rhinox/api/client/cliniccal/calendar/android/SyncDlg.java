@@ -213,7 +213,7 @@ public class SyncDlg extends Activity
         }
         else
         {
-            String calName = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.name_pref_calendar), "");
+            String calName = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_calendar), "");
 
             for( CalendarEntry e : calendars)
             {
@@ -409,7 +409,7 @@ public class SyncDlg extends Activity
             if(0 !=  e.when.startTime.length())
             {
                 Appointment appt = new Appointment(e);
-                appt.clinic = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.name_pref_clinic), "");
+                appt.clinic = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(getString(R.string.pref_name_clinic), "");
                 storageManager.addAppointment(appt, false);
             }
         }
@@ -438,7 +438,15 @@ public class SyncDlg extends Activity
         {
             //TODO: nab
             //we don't have a link here for editing or anything else. we will need to store this info somewhere
-          client.executeDelete(appt.toEvent());
+            try
+            {
+                client.executeDelete(appt.toEvent());
+            }
+            catch(Exception ex)
+            {
+                //I don't like doing this, but there are a couple cases where the event won't be in google yet.
+            }
+
           storageManager.deleteAppointment(appt, true);
         }
 
